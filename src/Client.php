@@ -57,6 +57,8 @@ class Client
 
     const ALI_CHANNEL_BAR = 'bar';// 支付宝 条码支付
 
+    const ALI_CHANNEL_SIGN='sign';//签约
+
     /*----------------微信--------------------*/
     const WX_CHANNEL_APP = 'app';// 微信 APP 支付
 
