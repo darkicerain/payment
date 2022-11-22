@@ -61,6 +61,10 @@ class QrCharge extends AliBaseObject implements IGatewayRequest
             'merchant_order_no'       => $requestParams['merchant_order_no'] ?? '',
             'business_params'         => $requestParams['business_params'] ?? '',
             'qr_code_timeout_express' => $timeoutExp,
+            'agreement_sign_params' => $requestParams['agreement_sign_params'] ?? '',
+            'enable_pay_channels' => $requestParams['enable_pay_channels'] ?? '',
+            'query_options' => $requestParams['query_options'] ?? '',
+
         ];
         $bizContent = ArrayUtil::paraFilter($bizContent);
 

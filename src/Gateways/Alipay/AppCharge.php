@@ -54,29 +54,32 @@ class AppCharge extends AliBaseObject implements IGatewayRequest
         $timeoutExp = '';
         $timeExpire = intval($requestParams['time_expire']);
         if (!empty($timeExpire)) {
-            $expire                      = floor(($timeExpire - time()) / 60);
+            $expire = floor(($timeExpire - time()) / 60);
             ($expire > 0) && $timeoutExp = $expire . 'm';// 超时时间 统一使用分钟计算
         }
 
         $bizContent = [
             'timeout_express' => $timeoutExp,
-            'total_amount'    => $requestParams['amount'] ?? '',
-            'product_code'    => $requestParams['product_code'] ?? '',
-            'body'            => $requestParams['body'] ?? '',
-            'subject'         => $requestParams['subject'] ?? '',
-            'out_trade_no'    => $requestParams['trade_no'] ?? '',
-            'time_expire'     => $timeExpire ? date('Y-m-d H:i', $timeExpire) : '',
-            'goods_type'      => $requestParams['goods_type'] ?? '',
-            'promo_params'    => $requestParams['promo_params'] ?? '',
+            'total_amount' => $requestParams['amount'] ?? '',
+            'product_code' => $requestParams['product_code'] ?? '',
+            'body' => $requestParams['body'] ?? '',
+            'subject' => $requestParams['subject'] ?? '',
+            'out_trade_no' => $requestParams['trade_no'] ?? '',
+            'time_expire' => $timeExpire ? date('Y-m-d H:i', $timeExpire) : '',
+            'goods_type' => $requestParams['goods_type'] ?? '',
+            'promo_params' => $requestParams['promo_params'] ?? '',
             'passback_params' => urlencode($requestParams['return_params'] ?? ''),
-            'extend_params'   => $requestParams['extend_params'] ?? '',
+            'extend_params' => $requestParams['extend_params'] ?? '',
             // 使用禁用列表
             //'enable_pay_channels' => '',
-            'store_id'             => $requestParams['store_id'] ?? '',
-            'specified_channel'    => 'pcredit',
+            'store_id' => $requestParams['store_id'] ?? '',
+            'specified_channel' => 'pcredit',
             'disable_pay_channels' => implode(self::$config->get('limit_pay', ''), ','),
-            'ext_user_info'        => $requestParams['ext_user_info'] ?? '',
-            'business_params'      => $requestParams['business_params'] ?? '',
+            'ext_user_info' => $requestParams['ext_user_info'] ?? '',
+            'business_params' => $requestParams['business_params'] ?? '',
+            'agreement_sign_params' => $requestParams['agreement_sign_params'] ?? '',
+            'enable_pay_channels' => $requestParams['enable_pay_channels'] ?? '',
+            'query_options' => $requestParams['query_options'] ?? '',
         ];
         $bizContent = ArrayUtil::paraFilter($bizContent);
 

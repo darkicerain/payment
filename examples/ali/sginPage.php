@@ -13,7 +13,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 
 
 date_default_timezone_set('Asia/Shanghai');
-$aliConfig = require_once __DIR__ . '/../aliconfig.php';
+$aliConfig = require_once __DIR__ . '/../config/aliconfig.php';
 
 // 交易信息
 $tradeNo = time() . rand(1000, 9999);

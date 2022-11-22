@@ -12,7 +12,7 @@
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 date_default_timezone_set('Asia/Shanghai');
-$aliConfig = require_once __DIR__ . '/../aliconfig.php';
+$aliConfig = require_once __DIR__ . '/../config/aliconfig.php';
 
 // 交易信息
 $tradeNo = time() . rand(1000, 9999);
@@ -29,6 +29,17 @@ $payData = [
 
     'operator_id' => '',
     'terminal_id' => '', // 终端设备号(门店号或收银设备ID) 默认值 web
+    'agreement_sign_params'=>[
+        'product_code' => 'CYCLE_PAY_AUTH',
+        'personal_product_code' => 'CYCLE_PAY_AUTH_P',
+        'access_params' => ['channel' => 'QRCODE'],
+        'period_rule_params' => [
+            'period_type' => 'DAY',
+            'period' => 7,
+            'execute_time' => '2022-11-23',
+            'single_amount' => 1
+        ],
+    ]
 ];
 
 
