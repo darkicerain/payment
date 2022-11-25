@@ -17,7 +17,7 @@ $aliConfig = require_once __DIR__ . '/../config/aliconfig.php';
 // 交易信息
 $tradeNo = time() . rand(1000, 9999);
 $payData = [
-    'agreement_no' => '20205224633661163886'
+    'agreement_no' => '20225924878990737555'
 ];
 
 // 使用
