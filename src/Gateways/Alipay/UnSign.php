@@ -73,7 +73,7 @@ class UnSign extends AliBaseObject implements IGatewayRequest
                 throw new GatewayException(sprintf('format bar data get error, [%s]', json_last_error_msg()), Payment::FORMAT_DATA_ERR, $ret);
             }
 
-            $content = $retArr['alipay_trade_pay_response'];
+            $content = $retArr['alipay_user_agreement_unsign_response'];
             if ($content['code'] !== self::REQ_SUC) {
                 throw new GatewayException(sprintf('request get failed, msg[%s], sub_msg[%s]', $content['msg'], $content['sub_msg']), Payment::SIGN_ERR, $content);
             }

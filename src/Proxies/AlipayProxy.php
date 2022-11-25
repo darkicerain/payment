@@ -27,6 +27,7 @@ use Payment\Gateways\Alipay\RefundQuery;
 use Payment\Gateways\Alipay\TradeQuery;
 use Payment\Gateways\Alipay\Transfer;
 use Payment\Gateways\Alipay\TransferQuery;
+use Payment\Gateways\Alipay\UnSign;
 use Payment\Payment;
 use Payment\Supports\BaseObject;
 
@@ -102,7 +103,7 @@ class AlipayProxy extends BaseObject implements IPayProxy, IQueryProxy, ITransfe
     public function notify(IPayNotify $callback)
     {
         try {
-            $n    = new Notify();
+            $n = new Notify();
             $data = $n->request(); // 获取数据
         } catch (GatewayException $e) {
             throw $e;
@@ -231,6 +232,16 @@ class AlipayProxy extends BaseObject implements IPayProxy, IQueryProxy, ITransfe
     {
         try {
             $obj = new TransferQuery();
+            return $obj->request($requestParams);
+        } catch (GatewayException $e) {
+            throw $e;
+        }
+    }
+
+    public function unSign(array $requestParams)
+    {
+        try {
+            $obj = new UnSign();
             return $obj->request($requestParams);
         } catch (GatewayException $e) {
             throw $e;

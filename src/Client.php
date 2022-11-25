@@ -36,6 +36,7 @@ use Payment\Supports\ProxyFactory;
  * @method array cancel(array $requestParams) 取消交易
  * @method array close(array $requestParams) 关闭交易
  * @method array notify(IPayNotify $callback) 异步通知
+ * @method array unSign(array $requestParams)
  **/
 class Client
 {
